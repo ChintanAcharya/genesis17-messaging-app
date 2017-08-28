@@ -8,9 +8,6 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const MongoClient = require('mongodb').MongoClient;
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-
 dotenv.config();
 
 const config = {
@@ -50,7 +47,6 @@ MongoClient.connect(config.database.url)
         console.info('Connected to database');
         const createEvent = require('./routes/createEvent')(db, config);
         const authenticate = require('./middleware/authenticate')(db, config);
-        const index = require('./routes/index')(db, config);
         const login = require('./routes/login')(db, config);
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
