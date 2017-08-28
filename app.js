@@ -53,7 +53,6 @@ MongoClient.connect(config.database.url)
         const promote = require('./routes/promote')(db, config);
 
         app.post('/createEvent', createEvent);
-        app.get('/', index);
         app.get('/login', (request, response) => {
             response.render('login');
         });
@@ -79,7 +78,7 @@ MongoClient.connect(config.database.url)
         });
     })
     .catch((error) => {
-        console.error('Could not connect to database');
+        console.error(error);
         process.exit(0);
     });
 

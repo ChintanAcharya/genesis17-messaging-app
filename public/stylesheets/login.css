@@ -1,4 +1,12 @@
+.main {
+    margin-top: 18vh;
+}
+
 .rdcolor{
     background-color: red;
     color:white;
+}
+
+.login-title {
+    padding: 10px;
 }
