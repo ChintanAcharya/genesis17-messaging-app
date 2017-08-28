@@ -1,9 +1,39 @@
-{{error}}
+
+<link type="text/css" rel="stylesheet" href="/stylesheets/login.css">
+<link type="text/css" rel="stylesheet" href="/stylesheets/participantsList.css">
+
+{{#if error}}
+    <div class="rdcolor"> Invalid Username Or Password</div>
+{{/if}}
 
 <form action="/login" method="post">
-    <input name="username" id="username"/>
-    <label for="username">Username</label>
-    <input name="password" id="password"/>
-    <label for="password">Password</label>
-    <button type="submit">Submit</button>
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col s6 offset-s3 valign">
+                <div class="card crdtop crdborder">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="username" type="text" class="validate">
+                                <label for="username">First Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row" align="center">
+                            <button class="btn" id="btn-submit">Submit</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
 </form>
