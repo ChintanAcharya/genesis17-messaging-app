@@ -20,7 +20,8 @@ const config = {
     database: {
         url: process.env.DATABASE_URL
     },
-    receipt_url: process.env.RECEIPT_URL
+    receipt_url: process.env.RECEIPT_URL,
+    session_secret: process.env.SESSION_SECRET
 };
 
 const app = express();
