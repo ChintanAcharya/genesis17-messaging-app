@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 card crdtop">
+            <div class="card-content">
+                <span class="card-title fltlft">Event Name: {{event.name}}</span>
+                <span class="card-title fltrgt">Current Round: {{event.currentRound}}</span>
+            </div>
+            <div class="card-content">
+                <table class="bordered record-table">
+                    <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Status</th>
+                        <th>Round</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each event.participants }}
+                        <tr class="click-row" data-id="{{@index}}">
+                            <td class="valign-wrapper">
+                                <input type="checkbox" class="myCheckbox filled-in"/>
+                                <label for="myCheckbox"></label>
+                            </td>
+                            <td>{{name}}</td>
+                            <td>{{phone}}</td>
+                            <td>{{status}}</td>
+                            <td>{{round}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-content">
+                <div>
+                    <button class="btn" id="btn-submit">Submit</button>
+                    &nbsp;&nbsp;&nbsp;
+                    <span id="num-participants">0</span> Participants Selected
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" action="/promote" hidden id="submitForm">
+        <input type="hidden" name="idList" id="idList">
+        <input type="hidden" name="dateTime" id="dateTime">
+        <input type="hidden" name="venue" id="venue">
+    </form>
+</div>
+
+<script src="/javascripts/form.js"></script>

@@ -1,0 +1,40 @@
+.crdtop{
+    margin-top: 50px;
+}
+.fltlft{
+    float:left;
+}
+.fltrgt{
+    float:right;
+ }
+
+.bgwhite{
+    background-color: white;
+}
+.bgsmoke{
+    background-color: whitesmoke;
+}
+
+.click-row {
+    cursor: pointer;
+}
+
+.click-row td {
+    padding: 5px;
+}
+
+.second-part {
+    padding: 10px 24px !important;
+}
+
+.click-row td label {
+    padding: 0 !important;
+    position: relative;
+    top: 2px;
+}
+.row .col.m6{
+    align-self: center !important;
+}
+.crdborder{
+    border: 1px solid skyblue !important;
+}
