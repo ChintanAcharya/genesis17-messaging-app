@@ -36,11 +36,33 @@
             </div>
             <div class="card-content">
                 <div>
-                    <button class="btn" id="btn-submit">Submit</button>
-                    &nbsp;&nbsp;&nbsp;
-                    <span id="num-participants">0</span> Participants Selected
+                    <a class="waves-effect waves-light btn" id="btn-submit1">Submit</a>
+                    &nbsp;&nbsp;&nbsp;<span id="num-participants">0</span> Participants Selected
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="modal" align="center" class="modal">
+        <div class="modal-content">
+            <div class="row padzero">
+                <div class="col s4 offset-s4">
+                    <p>Date:</p> <input type="text" class="datepicker" id="date">
+                </div>
+            </div>
+            <div class="row padzero">
+                <div class="col s4 offset-s4">
+                    <p>Time:</p> <input type="text" class="timepicker" id="time">
+                </div>
+
+            </div>
+            <div class="row padzero">
+                <div class="col s4 offset-s4">
+                    <p>Vanue:</p> <input type="text" id="venueInput">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect  btn btn-submit-red" id="btn-submit2">Submit</a>
         </div>
     </div>
 
@@ -51,4 +73,4 @@
     </form>
 </div>
 
-<script src="/javascripts/form.js"></script>
+<script src="/javascripts/participantList.js"></script>
