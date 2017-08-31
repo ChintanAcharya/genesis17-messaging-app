@@ -8,7 +8,6 @@ $(document).ready(() => {
         formSubmitButton: $('#btn-submit2'),
         selectedCounter: $('#num-participants'),
         modal: $('#modal'),
-        remarks: $('#remark'),
         datePicker: $('.datepicker').pickadate({
             selectMonths: true,
             selectYears: 15,
@@ -34,10 +33,9 @@ $(document).ready(() => {
             const datepicker = this.datePicker.get('select');
             if (list.length !== 0) {
                 $('#idList').val(list);
-                $('#remarks').val(this.remarks);
                 $('#dateTime').val(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val());
                 $('#venue').val(this.venueInput.val());
-                //console.log(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val() + ' '+this.venueInput.val()+' '+ this.remarks.val());
+                //console.log(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val() + ' '+this.venueInput.val()+' '+);
                 $('#submitForm').submit();
             }
             else {
