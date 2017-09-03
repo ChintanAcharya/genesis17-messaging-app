@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="/stylesheets/participantList.css">
-
+{{#each events}}
 <div class="container">
     <div class="row">
         <div class="col s12 card crdtop">
             <div class="card-content">
-                <span class="card-title fltlft">Event Name: {{event.name}}</span>
+                <span class="card-title fltlft" data-id="{{_id}}">Event Name: {{event.name}}</span>
                 <span class="card-title fltrgt">Current Round: {{event.currentRound}}</span>
             </div>
             <div class="card-content">
@@ -58,7 +58,7 @@
             <div class="row padzero">
                 <div class="col s8 offset-s2 input-field">
                     <input type="text" name="venue" id="venueInput" class="validate" data-length="16" required>
-                    <label for="venueInput" data-error="Length limit exceed">Venue:</label>
+                    <label for="venueInput">Venue:</label>
                 </div>
             </div>
             <div class="col s8 offset-s2">
@@ -71,9 +71,9 @@
             <input type="hidden" name="venue" id="venue">
         </form>
         <div class="modal-footer">
-            <a href="#!" class="modal-action waves-effect btn btn-submit-red" id="btn-submit2" disabled>Submit</a>
+            <a href="#!" class="modal-action waves-effect  btn btn-submit-red" id="btn-submit2">Submit</a>
         </div>
     </div>
 </div>
-
+{{/each}}
 <script src="/javascripts/participantList.js"></script>

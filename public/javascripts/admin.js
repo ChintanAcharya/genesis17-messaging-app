@@ -1,7 +1,6 @@
 $(document).ready(() => {
 
     window.app = {
-        formSubmit: $('#submitForm'),
         venueInput: $('#venueInput'),
         timepicker: $('.timepicker'),
         clickableRows: $('.click-row'),
@@ -33,16 +32,16 @@ $(document).ready(() => {
             const list = this.getCheckedList();
             const datepicker = this.datePicker.get('select');
             if (list.length !== 0) {
-
                 if (this.venueInput.val().length <= 16) {
                     $('#idList').val(list);
                     $('#dateTime').val(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val());
                     $('#venue').val(this.venueInput.val());
-                    //console.log(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val() + ' '+this.venueInput.val());
-                    this.formSubmit.submit();
+                    console.log(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val() + ' '+this.venueInput.val());
+                    //$('#btn-submit2').submit();
                 }
                 else {
-                    alert('error');
+                    alert('Error');
+                    //$('#errMsg').html('Error');
                 }
             }
             else {
@@ -86,17 +85,6 @@ $(document).ready(() => {
             this.formSubmitButton.on('click', function () {
                 _this.submitForm();
             });
-
-            this.venueInput.on('keyup', function () {
-                const value = $(this).val();
-                if (value.length <= 16 && value.length > 0) {
-                    $('#btn-submit2').attr('disabled', null);
-                }
-                else {
-                    $('#btn-submit2').attr('disabled', true);
-                }
-            });
-
             this.timepicker.pickatime({
                 default: 'now',
                 fromnow: 0,

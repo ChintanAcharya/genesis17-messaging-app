@@ -9,3 +9,9 @@ node_modules
 
 #test
 test.js
+
+#admin
+admin.hbs
+
+#adminjs
+admin.js
