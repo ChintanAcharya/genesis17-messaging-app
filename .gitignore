@@ -10,8 +10,6 @@ node_modules
 #test
 test.js
 
-#admin
-admin.hbs
-
-#adminjs
-admin.js
+#DB scripts
+enterEventData.js
+event_id.csv

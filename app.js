@@ -51,6 +51,8 @@ MongoClient.connect(config.database.url)
         const login = require('./routes/login')(db, config);
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
+        const admin = require('./routes/admin')(db, config);
+        const adminPromote = require('./routes/adminPromote')(db, config);
 
         app.post('/createEvent', createEvent);
         app.get('/login', (request, response) => {
@@ -59,6 +61,8 @@ MongoClient.connect(config.database.url)
         app.post('/login', login);
         app.get('/viewParticipants', authenticate, viewParticipants);
         app.post('/promote', authenticate, promote);
+        app.get('/admin', admin);
+        app.post('/admin/promote', adminPromote);
 
         // error handler
         app.use((req, res, next) => {
