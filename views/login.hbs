@@ -14,21 +14,23 @@
                         <div class="card-content rdcolor center-align"> Invalid Username or Password</div>
                     {{/if}}
                     <div class="card-content">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="username" name="username" type="text" class="validate">
-                                <label for="username">Username</label>
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="username" name="username" type="text" class="validate" data-length="10">
+                                    <label for="username">Username</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="password" type="password" name="password" class="validate">
-                                <label for="password">Password</label>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="password" type="password" name="password" class="validate">
+                                    <label for="password">Password</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row" align="center">
-                            <button class="btn" id="btn-submit">Submit</button>
-                        </div>
+                            <div class="row" align="center">
+                                <button class="btn" id="btn-submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
 
                 </div>

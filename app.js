@@ -52,16 +52,17 @@ MongoClient.connect(config.database.url)
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
         const admin = require('./routes/admin')(db, config);
-
         app.post('/createEvent', createEvent);
         app.get('/login', (request, response) => {
             response.render('login');
+        });
+        app.get('/', (request, response) =>{
+            response.render('index');
         });
         app.post('/login', login);
         app.get('/viewParticipants/:id',authenticate, viewParticipants);
         app.post('/promote/:id', authenticate, promote);
         app.get('/admin', authenticate, admin);
-
         // error handler
         app.use((req, res, next) => {
             const err = new Error('Not Found');
