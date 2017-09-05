@@ -10,6 +10,3 @@ node_modules
 #test
 test.js
 
-#DB scripts
-enterEventData.js
-event_id.csv
