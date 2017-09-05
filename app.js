@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(session({
     resave: false,
     saveUninitialized: false,
-    secret: 'CJA'
+    secret: config.session_secret
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -52,17 +52,15 @@ MongoClient.connect(config.database.url)
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
         const admin = require('./routes/admin')(db, config);
-        const adminPromote = require('./routes/adminPromote')(db, config);
 
         app.post('/createEvent', createEvent);
         app.get('/login', (request, response) => {
             response.render('login');
         });
         app.post('/login', login);
-        app.get('/viewParticipants/{id}', authenticate, viewParticipants);
-        app.post('/promote', authenticate, promote);
-        app.get('/admin', admin);
-        app.post('/admin/promote', adminPromote);
+        app.get('/viewParticipants/:id',authenticate, viewParticipants);
+        app.post('/promote/:id', authenticate, promote);
+        app.get('/admin', authenticate, admin);
 
         // error handler
         app.use((req, res, next) => {

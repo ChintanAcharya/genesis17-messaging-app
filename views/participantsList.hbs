@@ -9,6 +9,14 @@
             </div>
             <div class="card-content">
                 <table class="bordered record-table">
+                    <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
                     <tbody>
                     {{#each event.participants }}
                         <tr class="click-row" data-id="{{@index}}">
@@ -19,19 +27,9 @@
                             <td>{{name}}</td>
                             <td>{{phone}}</td>
                             <td>{{status}}</td>
-                            <td>{{round}}</td>
                         </tr>
                     {{/each}}
                     </tbody>
-                    <thead>
-                    <tr>
-                        <th>Select</th>
-                        <th>Name</th>
-                        <th>Phone Number</th>
-                        <th>Status</th>
-                        <th>Round</th>
-                    </tr>
-                    </thead>
                 </table>
             </div>
             <div class="card-content">
@@ -46,7 +44,7 @@
         <div class="modal-content">
             <div class="row padzero">
                 <div class="col s4 offset-s2 input-field">
-                    <input type="text" name="date" class="datepicker validate" id="date" required>
+                    <input type="text" name="date" class="datepicker" id="date" required>
                     <label for="date">Date:</label>
                 </div>
 
@@ -65,7 +63,7 @@
                 <div id="errMsg"></div>
             </div>
         </div>
-        <form method="post" action="/promote" hidden id="submitForm">
+        <form method="post" action="/promote/{{event._id}}" hidden id="submitForm">
             <input type="hidden" name="idList" id="idList">
             <input type="hidden" name="dateTime" id="dateTime">
             <input type="hidden" name="venue" id="venue">

@@ -14,8 +14,15 @@ module.exports = (db, config) => async (request, response) => {
         else {
             const {hash, salt, iterations} = event.password;
             if (hash === passwordUtils.encrypt(password, salt, iterations)) {
-                request.session.eventId = event._id;
-                response.redirect('/viewParticipants');
+                request.session.isLoggedIn = true;
+                if (event.admin) {
+                    request.session.isAdmin = true;
+                    response.redirect('/admin');
+                }
+                else {
+                    request.session.eventId = event._id;
+                    response.redirect(`/viewParticipants/${event._id}`);
+                }
             }
             else {
                 renderLoginError();
