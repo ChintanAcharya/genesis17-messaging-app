@@ -59,7 +59,7 @@ MongoClient.connect(config.database.url)
             response.render('login');
         });
         app.post('/login', login);
-        app.get('/viewParticipants', authenticate, viewParticipants);
+        app.get('/viewParticipants/{id}', authenticate, viewParticipants);
         app.post('/promote', authenticate, promote);
         app.get('/admin', admin);
         app.post('/admin/promote', adminPromote);
