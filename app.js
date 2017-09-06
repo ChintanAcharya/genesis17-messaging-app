@@ -31,7 +31,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 MongoClient.connect(config.database.url)
     .then((db) => {
         console.info('Connected to database');
-        const createEvent = require('./routes/createEvent')(db, config);
+        // const createEvent = require('./routes/createEvent')(db, config);
         const authenticate = require('./middleware/authenticate')(db, config);
         const login = require('./routes/login')(db, config);
         const viewParticipants = require('./routes/viewParticipants')(db, config);
