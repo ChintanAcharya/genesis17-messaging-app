@@ -30,7 +30,7 @@ module.exports = (db, config) => async (request, response) => {
             hash,
             sender,
             custom: event._id,
-            receipt_url: config.receipt_url,
+            // receipt_url: config.receipt_url,
             message
         }
     });
