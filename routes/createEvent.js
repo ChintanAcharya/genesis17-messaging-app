@@ -8,6 +8,7 @@ module.exports = (db, config) => async (request, response) => {
     const iterations = Math.floor(Math.random() * 500) + 500;
     try {
         await db.collection('events').insertOne({
+            _id: "TEST",
             username,
             password: {
                 salt,
