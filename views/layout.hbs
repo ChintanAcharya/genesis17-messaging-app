@@ -3,7 +3,7 @@
     <link type="text/css" rel="stylesheet" href="/stylesheets/materialize/css/materialize.min.css">
     <script src="/javascripts/vendor/jquery-3.2.1.min.js"></script>
     <script src="/javascripts/vendor/materialize.min.js"></script>
-
+    <title>Genesis'17 SMS App</title>
 </head>
 <body class="blue lighten-2">
 <div class="navbar-fixed">
@@ -11,7 +11,11 @@
         <div class="nav-wrapper blue darken-4 white-text">
             <a href="#!" class="brand-logo center ">Genesis'17 Messaging App</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/logout" class="btn">Logout</a></li>
+                {{#if isLoggedIn}}
+                    <li><a href="/logout" class="btn">Logout</a></li>
+                {{else}}
+                    <li><a href="/login" class="btn white black-text">Login</a></li>
+                {{/if}}
             </ul>
         </div>
     </nav>
