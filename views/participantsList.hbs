@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s12 card crdtop">
+        <div class="col l12 card crdtop">
             <div class="card-content">
                 <span class="card-title fltlft">Event Name: {{event.name}}</span>
                 <span class="card-title fltrgt">Current Round: {{event.currentRound}}</span>
@@ -40,38 +40,33 @@
             </div>
         </div>
     </div>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <div class="row padzero">
-                <div class="col s4 offset-s2 input-field">
-                    <input type="text" name="date" class="datepicker" id="date" required>
-                    <label for="date">Date:</label>
-                </div>
-
-                <div class="col s4 input-field">
-                    <input type="text" name="time" class="timepicker validate" id="time" required>
-                    <label for="time">Time:</label>
-                </div>
+</div>
+<div id="modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <div class="row padzero">
+            <div class="col l6 input-field">
+                <input type="text" name="date" class="datepicker" id="date" required>
+                <label for="date">Date:</label>
             </div>
-            <div class="row padzero">
-                <div class="col s8 offset-s2 input-field">
-                    <input type="text" name="venue" id="venueInput" class="validate" data-length="16" required>
-                    <label for="venueInput" data-error="Length limit exceed">Venue:</label>
-                </div>
+            <div class="col input-field l6">
+                <input type="text" name="time" class="timepicker validate" id="time" required>
+                <label for="time">Time:</label>
             </div>
-            <div class="col s8 offset-s2">
-                <div id="errMsg"></div>
+            <div class="col s8 offset-s2 l12 input-field">
+                <input type="text" name="venue" id="venueInput" class="validate" data-length="16" required>
+                <label for="venueInput" data-error="Length limit exceed">Venue:</label>
             </div>
-        </div>
-        <form method="post" action="/promote/{{event._id}}" hidden id="submitForm">
-            <input type="hidden" name="idList" id="idList">
-            <input type="hidden" name="dateTime" id="dateTime">
-            <input type="hidden" name="venue" id="venue">
-        </form>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action waves-effect btn btn-submit-red" id="btn-submit2" disabled>Submit</a>
+            <div class="col l12 center">
+                <a href="#!" class="modal-action waves-effect btn btn-submit-red" id="btn-submit2" disabled>Submit</a>
+            </div>
         </div>
     </div>
+    <form method="post" action="/promote/{{event._id}}" hidden id="submitForm">
+        <input type="hidden" name="idList" id="idList">
+        <input type="hidden" name="dateTime" id="dateTime">
+        <input type="hidden" name="venue" id="venue">
+    </form>
+
 </div>
 
 <script src="/javascripts/participantList.js"></script>

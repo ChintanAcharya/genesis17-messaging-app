@@ -39,6 +39,8 @@ $(document).ready(() => {
                     $('#dateTime').val(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val());
                     $('#venue').val(this.venueInput.val());
                     //console.log(datepicker.date + ' ' + monthArr[datepicker.month] + ' ' + this.timepicker.val() + ' '+this.venueInput.val());
+                    this.formSubmitButton.attr('disabled', true);
+                    this.formSubmitButton.html('Submitting...');
                     this.formSubmit.submit();
                 }
                 else {
