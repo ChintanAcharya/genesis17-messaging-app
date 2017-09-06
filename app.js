@@ -30,7 +30,6 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -41,11 +40,13 @@ app.use(session({
     saveUninitialized: false,
     secret: config.session_secret
 }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// for login/logout button on navbar
 app.use((request, response, next) => {
     response.locals.isLoggedIn = request.session.isLoggedIn;
     next();
 });
-app.use(express.static(path.join(__dirname, 'public')));
 
 MongoClient.connect(config.database.url)
     .then((db) => {

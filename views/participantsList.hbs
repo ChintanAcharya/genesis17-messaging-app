@@ -26,7 +26,11 @@
                             </td>
                             <td>{{name}}</td>
                             <td>{{phone}}</td>
-                            <td>{{status}}</td>
+                            {{#if delivered}}
+                                <td class="green-text">Delivered</td>
+                            {{else}}
+                                <td>Not delivered</td>
+                            {{/if}}
                         </tr>
                     {{/each}}
                     </tbody>
@@ -34,8 +38,12 @@
             </div>
             <div class="card-content">
                 <div>
-                    <a class="waves-effect waves-light btn" id="btn-submit1">Submit</a>
-                    &nbsp;&nbsp;&nbsp;<span id="num-participants">0</span> Participants Selected
+                    {{#if isFinalRound}}
+                        <span>This is the final round. You cannot promote further</span>
+                    {{else}}
+                        <a class="waves-effect waves-light btn" id="btn-submit1">Submit</a>
+                        &nbsp;&nbsp;&nbsp;<span id="num-participants">0</span> Participants Selected
+                    {{/if}}
                 </div>
             </div>
         </div>
