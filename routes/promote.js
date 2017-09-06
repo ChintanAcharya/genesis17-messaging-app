@@ -16,7 +16,8 @@ module.exports = (db, config) => async (request, response) => {
         participants[id].status = '?';
     });
 
-    const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name}at ${venue}, ${dateTime}.`;
+    // const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name} at ${venue}, ${dateTime}. A`;
+    const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name}at ${venue}, ${dateTime}. A`;
     console.log(message);
     const numbers = participants.filter(p => p.round === event.currentRound + 1).map(p => p.phone).join(',');
     console.log(numbers);
