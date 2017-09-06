@@ -58,6 +58,7 @@ MongoClient.connect(config.database.url)
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
         const admin = require('./routes/admin')(db, config);
+        const textLocal = require('./routes/textLocal')(db, config);
         //app.post('/createEvent', createEvent);
         app.get('/login', (request, response) => {
             response.render('login');
@@ -70,6 +71,7 @@ MongoClient.connect(config.database.url)
         app.get('/viewParticipants/:id',authenticate, viewParticipants);
         app.post('/promote/:id', authenticate, promote);
         app.get('/admin', authenticate, admin);
+        app.post('/textLocal', textLocal);
         // error handler
         app.use((req, res, next) => {
             const err = new Error('Not Found');
