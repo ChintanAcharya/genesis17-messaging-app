@@ -58,7 +58,7 @@ MongoClient.connect(config.database.url)
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
         const admin = require('./routes/admin')(db, config);
-        // app.post('/createEvent', createEvent);
+        //app.post('/createEvent', createEvent);
         app.get('/login', (request, response) => {
             response.render('login');
         });

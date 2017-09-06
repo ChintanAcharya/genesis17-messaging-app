@@ -12,7 +12,7 @@
             <a href="#!" class="brand-logo center ">Genesis'17 Messaging App</a>
             <ul class="right hide-on-med-and-down">
                 {{#if isLoggedIn}}
-                    <li><a href="/logout" class="btn">Logout</a></li>
+                    <li><a href="/logout" class="btn red white-text">Logout</a></li>
                 {{else}}
                     <li><a href="/login" class="btn white black-text">Login</a></li>
                 {{/if}}
@@ -20,6 +20,12 @@
         </div>
     </nav>
 </div>
-{{{body}}}
+<div class="hide-on-med-and-down">
+
+    {{{body}}}
+</div>
+<div class="hide-on-large-only">
+    <h1>Please Use this site on Pc/Laptop.</h1>
+</div>
 </body>
 
