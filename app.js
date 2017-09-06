@@ -41,6 +41,10 @@ app.use(session({
     saveUninitialized: false,
     secret: config.session_secret
 }));
+app.use((request, response, next) => {
+    response.locals.isLoggedIn = request.session.isLoggedIn;
+    next();
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 MongoClient.connect(config.database.url)
@@ -49,6 +53,7 @@ MongoClient.connect(config.database.url)
         // const createEvent = require('./routes/createEvent')(db, config);
         const authenticate = require('./middleware/authenticate')(db, config);
         const login = require('./routes/login')(db, config);
+        const logout = require('./routes/logout')();
         const viewParticipants = require('./routes/viewParticipants')(db, config);
         const promote = require('./routes/promote')(db, config);
         const admin = require('./routes/admin')(db, config);
@@ -60,6 +65,7 @@ MongoClient.connect(config.database.url)
             response.render('index');
         });
         app.post('/login', login);
+        app.get('/logout', logout);
         app.get('/viewParticipants/:id',authenticate, viewParticipants);
         app.post('/promote/:id', authenticate, promote);
         app.get('/admin', authenticate, admin);
