@@ -8,6 +8,7 @@ $(document).ready(() => {
         submitButton: $('#btn-submit1'),
         formSubmitButton: $('#btn-submit2'),
         selectedCounter: $('#num-participants'),
+        selectAllButton: $('#select-all'),
         modal: $('#modal'),
         datePicker: $('.datepicker').pickadate({
             selectMonths: true,
@@ -112,6 +113,9 @@ $(document).ready(() => {
                 onStart: function () {
                     $('.timepicker').appendTo('body');
                 }
+            });
+            this.selectAllButton.on('click', () => {
+                _this.clickableRows.trigger('click');
             });
         }
     };

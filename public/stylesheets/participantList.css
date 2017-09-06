@@ -73,3 +73,7 @@
 .crdborder {
     border: 1px solid skyblue !important;
 }
+
+#select-all {
+    margin-left: 1em;
+}
