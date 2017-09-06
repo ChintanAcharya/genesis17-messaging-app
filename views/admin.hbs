@@ -2,17 +2,84 @@
 <div class="container">
     {{#each events}}
         <div class="row">
-            <div class="col l12">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title fltlft">Event Name: {{name}}</span>
-                    </div>
-                    <div class="card-content">
-                        <a href="/viewParticipants/{{_id}}" class="waves-effect waves-light btn">Go to Promote</a>
+            <div class="col s12 card crdtop">
+                <div class="card-content">
+                    <span class="card-title fltlft">Event Name: {{name}}</span>
+                    <span class="card-title fltrgt">Current Round: {{currentRound}}</span>
+                </div>
+                <div class="card-content">
+                    <table class="bordered record-table">
+                        <tbody>
+                        {{#each participants }}
+                            <tr class="click-row" data-id="{{@index}}">
+                                <td class="valign-wrapper">
+                                    <input type="checkbox" class="myCheckbox filled-in"/>
+                                    <label for="myCheckbox"></label>
+                                </td>
+                                <td>{{name}}</td>
+                                <td>{{phone}}</td>
+                                <td>{{status}}</td>
+                                <td>{{round}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>Status</th>
+                            <th>Round</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="card-content">
+                    <div>
+                        <a class="waves-effect waves-light btn" id="btn-submit1">Submit</a>
+                        &nbsp;&nbsp;&nbsp;<span id="num-participants">0</span> Participants Selected
                     </div>
                 </div>
             </div>
         </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="row padzero">
+                    <div class="col s4 offset-s2 input-field">
+                        <input type="text" name="date" id="date" class="validate datepicker" required>
+                        <label for="date">Date:</label>
+                    </div>
+
+                    <div class="col s4 input-field">
+                        <input type="text" name="time" id="time" class="validate timepicker" required>
+                        <label for="time">Time:</label>
+                    </div>
+                </div>
+                <div class="row padzero">
+                    <div class="col s8 offset-s2 input-field">
+                        <input type="text" name="venue" id="venueInput" class="validate" data-length="16" required>
+                        <label for="venueInput">Venue:</label>
+                    </div>
+                </div>
+                <div class="col s8 offset-s2">
+                    <div id="errMsg"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action waves-effect btn btn-submit-red btn-submit2"
+                   data-id="{{_id}}">
+                    Submit
+                </a>
+            </div>
+        </div>
     {{/each}}
 </div>
+
+<form method="post" action="/admin/promote" hidden id="submitForm">
+    <input type="hidden" name="idList" id="idList">
+    <input type="hidden" name="dateTime" id="dateTime">
+    <input type="hidden" name="venue" id="venue">
+    <input type="hidden" name="id" id="id">
+</form>
+
 <script src="/javascripts/participantList.js"></script>
