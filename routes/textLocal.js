@@ -2,7 +2,7 @@ module.exports = (db, config) => async (request, response) => {
     const {number, status, customID, datetime} = request.body;
     console.log(request.body);
     try {
-        await  db.collection('receipts').insertOne({number, status, custonID, datetime});
+        await  db.collection('receipts').insertOne({number, status, customID, datetime});
         const result = await db.collection('events').findOneAndUpdate(
             {_id: customID, 'participants.number': number.slice(2)},
             {'$set': {'participants.$.status': status, 'participants.$.lastDelivered': datetime}}
