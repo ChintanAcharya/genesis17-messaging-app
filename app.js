@@ -59,7 +59,7 @@ MongoClient.connect(config.database.url)
         const promote = require('./routes/promote')(db, config);
         const admin = require('./routes/admin')(db, config);
         const textLocal = require('./routes/textLocal')(db, config);
-        //app.post('/createEvent', createEvent);
+        // app.post('/createEvent', createEvent);
         app.get('/login', (request, response) => {
             response.render('login');
         });

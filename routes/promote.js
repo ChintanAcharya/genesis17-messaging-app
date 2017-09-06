@@ -17,10 +17,8 @@ module.exports = (db, config) => async (request, response) => {
     });
 
     // const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name} at ${venue}, ${dateTime}. A`;
-    const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name}at ${venue}, ${dateTime}. A`;
-    console.log(message);
+    const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name}at ${venue}, ${dateTime}. -Team Genesis`;
     const numbers = participants.filter(p => p.round === event.currentRound + 1).map(p => p.phone).join(',');
-    console.log(numbers);
     const responseBody = await httpRequest.post({
         url: 'http://api.textlocal.in/send',
         form: {
@@ -34,9 +32,6 @@ module.exports = (db, config) => async (request, response) => {
             message
         }
     });
-    console.log('---------------------------------------');
-    console.log(responseBody);
-    console.log('---------------------------------------');
     await db.collection('events').updateOne(
         {'_id': eventId},
         {
