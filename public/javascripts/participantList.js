@@ -115,7 +115,10 @@ $(document).ready(() => {
                 }
             });
             this.selectAllButton.on('click', () => {
-                _this.clickableRows.trigger('click');
+                _this.clickableRows.data('checked', true);
+                _this.clickableRows.addClass("bgsmoke");
+                _this.clickableRows.children('td').children('.myCheckbox').prop("checked", "true");
+                _this.selectedCounter.html(_this.clickableRows.length);
             });
         }
     };
