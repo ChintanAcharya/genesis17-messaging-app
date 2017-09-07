@@ -1,14 +1,19 @@
+<div class="section2">
 <div class="container">
-    {{#each events}}
-        <div class="row">
-            <div class="col s12 card">
-                <div class="card-content">
-                    <span class="card-title fltlft">Event Name: {{name}}</span>
-                </div>
-                <div class="card-content">
-                    <a href="/viewParticipants/{{_id}}" class="waves-effect waves-light btn">Go to Promote</a>
+    <div class="row">
+        {{#each events}}
+            <div class="col l4 indigo-text text-darken-4">
+                <div class="card-panel">
+                    <ul>
+                        <li class="">Event Name: <b>{{name}}</b></li>
+                        <li class="">Current Round: <b>{{currentRound}}</b></li>
+                        <li class="">Max Round: <b>{{maxRounds}}</b></li>
+                    </ul>
+                    <a href="/viewParticipants/{{_id}}" class="waves-effect waves-light btn white-text indigo darken-4">Go to
+                        Promote</a>
                 </div>
             </div>
-        </div>
-    {{/each}}
+        {{/each}}
+    </div>
+</div>
 </div>

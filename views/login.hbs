@@ -1,34 +1,32 @@
-<link type="text/css" rel="stylesheet" href="/stylesheets/login.css">
-
 <form action="/login" method="post">
     <div class="container main">
         <div class="row">
             <div class="col l6 m8 s12 offset-l3 offset-m2">
-                <div class="card crdtop crdborder">
+                <div class="card crdtop crdborder hoverable ">
                     <div class="card-title login-title">
-                        <div class="center-align">
-                            Login
+                        <div class="center-align indigo-text text-darken-4">
+                            <h4>Login</h4>
                         </div>
                     </div>
                     {{#if error}}
-                        <div class="card-content rdcolor center-align"> Invalid Username or Password</div>
+                        <div class="card-content rdcolor center-align"> <b>Invalid Username or Password</b></div>
                     {{/if}}
                     <div class="card-content">
                         <form>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="username" placeholder="" name="username" type="text" class="validate" data-length="10">
-                                    <label for="username">Username</label>
+                                    <input id="username" placeholder="" name="username" type="text" class="validate" data-length="10" required>
+                                    <label for="username"> <b class="indigo-text text-darken-4">Username</b></label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="password" placeholder="" type="password" name="password" class="validate">
-                                    <label for="password">Password</label>
+                                    <input id="password" placeholder="" type="password" name="password" class="validate" data-length="8" required>
+                                    <label for="password"><b class="indigo-text text-darken-4">Password</b></label>
                                 </div>
                             </div>
                             <div class="row" align="center">
-                                <button class="btn" id="btn-submit">Submit</button>
+                                <button class="btn waves-effect indigo darken-4 white-text" id="btn-submit">Submit</button>
                             </div>
                         </form>
                     </div>

@@ -1,9 +1,27 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.section1{
+    padding-top: 50px;
+}
+.main {
+    margin-top: 18vh;
+}
+.rdcolor{
+    background-color: red;
+    color:white;
 }
 
-a {
-  color: #00B7FF;
+.login-title {
+    padding: 10px;
 }
 
+.checkbox-indigo[type="checkbox"].filled-in:checked + label:after{
+    border: 2px solid #1a237e;
+    background-color: #1a237e;
+}
+
+.picker__date-display, .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+    background-color: #1a237e;
+}
+
+.picker__close, .picker__today, .picker__clear {
+    color: #1a237e;
+}

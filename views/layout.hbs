@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <head>
     <link type="text/css" rel="stylesheet" href="/stylesheets/materialize/css/materialize.min.css">
+    <title>Genesis'17 SMS App</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="/javascripts/vendor/jquery-3.2.1.min.js"></script>
     <script src="/javascripts/vendor/materialize.min.js"></script>
-    <title>Genesis'17 SMS App</title>
 </head>
-<body class="blue lighten-2">
+<body class="indigo">
 <div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper blue darken-4 white-text">
-            <a href="#!" class="brand-logo center ">Genesis'17 Messaging App</a>
+        <div class="nav-wrapper indigo darken-4 white-text">
+            <a href="#!" class="brand-logo center">Genesis'17 Messaging App</a>
             <ul class="right hide-on-med-and-down">
                 {{#if isLoggedIn}}
-                    <li><a href="/logout" class="btn red white-text">Logout</a></li>
+                    <li><a href="/logout" class="btn indigo lighten-4 black-text text-darken-4"><b>Logout</b></a></li>
                 {{else}}
-                    <li><a href="/login" class="btn white black-text">Login</a></li>
+                    <li><a href="/login" class="btn white indigo-text text-darken-4"><b>Login</b></a></li>
                 {{/if}}
             </ul>
         </div>
     </nav>
 </div>
 <div class="hide-on-med-and-down">
-
     {{{body}}}
 </div>
 <div class="hide-on-large-only">
-    <h1>Please Use this site on Pc/Laptop.</h1>
+    <div class="row center">
+        <div class="col m12  s12">
+            <div class="card-panel red accent-4 white-text">
+                <h4>Please use this site on Pc/Laptop.</h4>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 

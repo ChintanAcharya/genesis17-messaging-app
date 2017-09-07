@@ -2,10 +2,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col l12 card crdtop">
+        <div class="col l12 card crdtop indigo-text text-darken-4">
             <div class="card-content">
-                <span class="card-title fltlft">Event Name: {{event.name}}</span>
-                <span class="card-title fltrgt">Current Round: {{event.currentRound}}</span>
+                <span class="card-title fltlft"><h4>Event Name: {{event.name}}</h4></span>
+                <span class="card-title fltrgt"><h4>Current Round: {{event.currentRound}}</h4></span>
             </div>
             <div class="card-content">
                 <table class="bordered record-table">
@@ -19,17 +19,17 @@
                     </thead>
                     <tbody>
                     {{#each event.participants }}
-                        <tr class="click-row" data-id="{{id}}">
+                        <tr class="click-row " data-id="{{id}}">
                             <td class="valign-wrapper">
-                                <input type="checkbox" class="myCheckbox filled-in"/>
+                                <input type="checkbox" class="myCheckbox filled-in checkbox-indigo"/>
                                 <label for="myCheckbox"></label>
                             </td>
                             <td>{{name}}</td>
                             <td>{{phone}}</td>
                             {{#if delivered}}
-                                <td class="green-text">Delivered</td>
+                                <td class="green-text"><b>Delivered</b></td>
                             {{else}}
-                                <td>Not delivered</td>
+                                <td class="red-text "><b>Not delivered</b></td>
                             {{/if}}
                         </tr>
                     {{/each}}
@@ -41,8 +41,8 @@
                     {{#if isFinalRound}}
                         <span>This is the final round. You cannot promote further</span>
                     {{else}}
-                        <a class="waves-effect waves-light btn" id="btn-submit1">Submit</a>
-                        <a class="waves-effect white black-text waves-light btn" id="select-all">Select all</a>
+                        <a class="waves-effect waves-light btn indigo darken-4" id="btn-submit1">Submit</a>
+                        <a class="waves-effect waves-light btn indigo darken-4" id="select-all">Select all</a>
                         &nbsp;&nbsp;&nbsp;<span id="num-participants">0</span> Participants Selected
                     {{/if}}
                 </div>
@@ -51,24 +51,30 @@
     </div>
 </div>
 <div id="modal" class="modal modal-fixed-footer">
-    <div class="modal-content">
+    <div class="modal-content valign-wrapper">
         <div class="row padzero">
+            <div class="col l12 center">
+                <h3 class="indigo-text text-darken-4">Message details</h3>
+            </div>
             <div class="col l6 input-field">
                 <input type="text" name="date" class="datepicker" id="date" required>
-                <label for="date">Date:</label>
+                <label for="date"><b class="indigo-text text-darken-4">Date:</b></label>
             </div>
             <div class="col input-field l6">
-                <input type="text" name="time" class="timepicker validate" id="time" required>
-                <label for="time">Time:</label>
+                <input type="text" name="time" class="timepicker" id="time" required>
+                <label for="time"><b class="indigo-text text-darken-4">Time:</b></label>
             </div>
             <div class="col s8 offset-s2 l12 input-field">
                 <input type="text" name="venue" id="venueInput" class="validate" data-length="16" required>
-                <label for="venueInput" data-error="Length limit exceed">Venue:</label>
+                <label for="venueInput" data-error="Length limit exceed"><b class="indigo-text text-darken-4">Venue:</b></label>
             </div>
             <div class="col l12 center">
-                <a href="#!" class="modal-action waves-effect btn btn-submit-red" id="btn-submit2" disabled>Submit</a>
+                <a href="#!" class="modal-action waves-effect btn btn-submit-red indigo darken-4" id="btn-submit2" disabled>Submit</a>
             </div>
         </div>
+    </div>
+    <div class="modal-footer  indigo darken-4 ">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat white-text">Close</a>
     </div>
     <form method="post" action="/promote/{{event._id}}" hidden id="submitForm">
         <input type="hidden" name="idList" id="idList">
