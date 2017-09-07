@@ -7,8 +7,8 @@ module.exports = (db, config) => async (request, response) => {
             participant.delivered = participant.status === 'D';
             return participant;
         })
-        .sort((a, b) => a.name > b.name ? 1 : -1)
-        .sort((participant) => participant.delivered ? 1 : -1);
+        .sort((a, b) => a.name > b.name ? 1 : -1);
+        // .sort((participant) => participant.delivered ? 1 : -1);
     const isFinalRound = event.currentRound >= event.maxRounds;
     response.render('participantsList', {event, isFinalRound});
 };
