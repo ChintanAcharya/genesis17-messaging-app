@@ -12,8 +12,8 @@ module.exports = (db, config) => async (request, response) => {
     const participants = event.participants;
 
     idList.forEach((id) => {
-        participants[id].round += 1;
-        participants[id].status = '?';
+        participants[+id - 1].round += 1;
+        participants[+id - 1].status = '?';
     });
 
     // const message = `Dear participant, please be present for round ${event.currentRound + 1} of ${event.name} at ${venue}, ${dateTime}. A`;
