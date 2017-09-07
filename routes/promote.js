@@ -32,6 +32,7 @@ module.exports = (db, config) => async (request, response) => {
             message
         }
     });
+    console.log(responseBody);
     await db.collection('events').updateOne(
         {'_id': eventId},
         {

@@ -107,7 +107,7 @@ $(document).ready(() => {
                 donetext: 'OK',
                 cleartext: 'Clear',
                 canceltext: 'Cancel',
-                autoclose: true,
+                autoclose: false,
                 ampmclickable: true,
                 container: 'body',
                 onStart: function () {
